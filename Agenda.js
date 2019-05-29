@@ -18,7 +18,7 @@ export default class Agenda {
             this._showInTable(new Contacto(contacto));
         });
     }
-    _borrar(row,contacto,email) {
+    _borrar(row,contacto) {
         let btnBorrar = document.createElement("input");
         btnBorrar.type = "button";
         btnBorrar.value = "Borrar";
@@ -26,7 +26,7 @@ export default class Agenda {
         row.cells[4].innerHTML = "";
         row.cells[4].appendChild(btnBorrar);
         btnBorrar.addEventListener("click", () => {
-            this.bBorrarRow(contacto);
+            this.borrarRow(contacto);
         });
     }
 
