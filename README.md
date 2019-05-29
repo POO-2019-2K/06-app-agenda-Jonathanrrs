@@ -1,5 +1,7 @@
 # Ejercicio 6 La Agenda
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/da0ff74cbc684d7ea633f0c6fefe4e0b)](https://www.codacy.com/app/Jonathanrrs/06-app-agenda-Jonathanrrs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=POO-2019-2K/06-app-agenda-Jonathanrrs&amp;utm_campaign=Badge_Grade)
+
+[![codebeat badge](https://codebeat.co/badges/8bb49c73-fa1a-464b-a905-ed70886333a1)](https://codebeat.co/projects/github-com-poo-2019-2k-06-app-agenda-jonathanrrs-master)
 ## Tiempo para realizar la actividad
 
 6 Horas
