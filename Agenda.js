@@ -5,6 +5,7 @@ export default class Agenda {
         this._tablaAgenda = tablaAgenda;
         this._contactos = [];
         this._initTables();
+       
         //localStorage.removeItem("contactos");
     }
 
@@ -16,30 +17,11 @@ export default class Agenda {
         contactos.forEach((contacto, index) => {
             contacto.fechaNac = new Date(contacto.fechaNac);
             this._showInTable(new Contacto(contacto));
+            this._contactos.sort(this._comparar);
+           
         });
     }
-    _borrar(row,contacto) {
-        let btnBorrar = document.createElement("input");
-        btnBorrar.type = "button";
-        btnBorrar.value = "Borrar";
-        btnBorrar.className = "btn btn-danger";
-        row.cells[4].innerHTML = "";
-        row.cells[4].appendChild(btnBorrar);
-        btnBorrar.addEventListener("click", () => {
-            this.borrarRow(contacto);
-        });
-    }
-
-    _borrarRow(contacto) {
-        this._contactos = JSON.parse(localStorage.getItem("contactos"));
-        this._contactos.forEach((e, index) => {
-            if (e.nombre === contacto.nombre) {
-                this._contactos.splice(index, 1);
-            }
-        });
-        location.reload();
-        localStorage.setItem("contactos", JSON.stringify(this._contactos));
-    }
+    
     _showInTable(contacto) {
         let row = this._tablaAgenda.insertRow(-1);
 
@@ -62,11 +44,59 @@ export default class Agenda {
 
         }
         this._contactos.push(objContacto);
-
     }
 
     addContacto(contacto) {
         this._showInTable(contacto);
         localStorage.setItem("contactos", JSON.stringify(this._contactos));
     }
+
+    _comparar(a, b) {
+        if (a.nombre < b.nombre) {
+            return -1;
+        }
+        if (a.nombre > b.nombre) {
+            return 1;
+        }
+        return 0;
+
+    }
+
+    _alfa() {
+        this._contactos.sort(this._comparar);
+        console.log(this._contactos.sort(this._comparar));
+
+    }
+    
+    mostrarAlfa() {
+        this._contactos.sort(this._comparar);
+        localStorage.setItem("contactos", JSON.stringify(this._contactos));
+        location.reload();
+    
+    }
+    _borrar(row, contacto) {
+        let btnBorrar = document.createElement("input");
+        btnBorrar.type = "button";
+        btnBorrar.value = "Borrar";
+        btnBorrar.className = "btn btn-danger";
+        row.cells[4].innerHTML = "";
+        row.cells[4].appendChild(btnBorrar);
+        btnBorrar.addEventListener("click", () => {
+            this._borrarRow(contacto);
+        });
+    }
+
+    _borrarRow(contacto) {
+        this._contactos = JSON.parse(localStorage.getItem("contactos"));
+        this._contactos.forEach((e, index) => {
+            if (e.nombre === contacto.nombre) {
+                this._contactos.splice(index, 1);
+            }
+        });
+        location.reload();
+        localStorage.setItem("contactos", JSON.stringify(this._contactos));
+    }
+
+
+
 }
