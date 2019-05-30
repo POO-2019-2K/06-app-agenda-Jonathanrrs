@@ -19,7 +19,6 @@ export default class Contacto {
             "Dic"
           ];
     }
-
     get nombre() {
         return this._nombre;
     }
