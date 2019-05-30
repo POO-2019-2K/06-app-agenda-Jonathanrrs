@@ -17,8 +17,8 @@ export default class Agenda {
         contactos.forEach((contacto, index) => {
             contacto.fechaNac = new Date(contacto.fechaNac);
             this._showInTable(new Contacto(contacto));
-            this._contactos.sort(this._comparar);
-           
+            console.log(contacto.fechaNac)
+            
         });
     }
     
@@ -44,6 +44,7 @@ export default class Agenda {
 
         }
         this._contactos.push(objContacto);
+        
     }
 
     addContacto(contacto) {
@@ -51,7 +52,7 @@ export default class Agenda {
         localStorage.setItem("contactos", JSON.stringify(this._contactos));
     }
 
-    _comparar(a, b) {
+    _compararAlfa(a, b) {
         if (a.nombre < b.nombre) {
             return -1;
         }
@@ -61,18 +62,35 @@ export default class Agenda {
         return 0;
 
     }
+    _compararNum(a,b) {
+        if (a.fechaNac > b.fechaNac) {
+            return -1;
+        }
+        if (a.fechaNac < b.fechaNac) {
+            return 1;
+        }
+        return 0;
+    }
 
     _alfa() {
-        this._contactos.sort(this._comparar);
-        console.log(this._contactos.sort(this._comparar));
-
+        this._contactos.sort(this._compararAlfa);
+    }
+    _num() {
+        console.log(this._contactos.sort(this._compararNum))
+        this._contactos.sort(this._compararNum);
+       
     }
     
     mostrarAlfa() {
-        this._contactos.sort(this._comparar);
+        this._contactos.sort(this._compararAlfa);
         localStorage.setItem("contactos", JSON.stringify(this._contactos));
         location.reload();
-    
+    }
+    mostrarNum() {
+      
+        this._contactos.sort(this._compararNum);
+        localStorage.setItem("contactos", JSON.stringify(this._contactos));
+        location.reload();
     }
     _borrar(row, contacto) {
         let btnBorrar = document.createElement("input");
@@ -96,7 +114,5 @@ export default class Agenda {
         location.reload();
         localStorage.setItem("contactos", JSON.stringify(this._contactos));
     }
-
-
 
 }
