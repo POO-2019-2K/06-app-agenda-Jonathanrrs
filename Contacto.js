@@ -1,8 +1,9 @@
 export default class Contacto {
     constructor(contacto) {
-        this._nombre = contacto.nombre;
+        this._nombre = contacto.nombre.toUpperCase();
         this._fechaNac = contacto.fechaNac;
         this._correo = contacto.correo;
+        this._numero = contacto.numero;
         this._mes = [
             "Ene",
             "Feb",
@@ -28,6 +29,9 @@ export default class Contacto {
     get correo() {
         return this._correo;
     }
+    get numero() {
+        return this._numero;
+    }
     getNacimiento() {
         let fecha = this._fechaNac.getDate() + "/" + this._mes[this._fechaNac.getMonth()] + "/" + this._fechaNac.getFullYear();
         return fecha;
@@ -39,6 +43,4 @@ export default class Contacto {
         let edad = Math.trunc(differenceMs / oneYear);
         return edad;
     }
-
-
 }
