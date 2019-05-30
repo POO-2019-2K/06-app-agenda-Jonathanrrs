@@ -14,19 +14,25 @@ class Main {
                 sFechaNac = sFechaNac.split("-");
                 let fechaNac = new Date(sFechaNac[0], sFechaNac[1] - 1, sFechaNac[2]);
                 let correo = document.querySelector("#correo").value;
+                let numero = document.querySelector("#numero").value;
                 
                 let objContacto = {
                     nombre:  nombre,
                     fechaNac: fechaNac,
-                    correo: correo
+                    correo: correo,
+                    numero: numero
                 }
                 
                 let contacto = new Contacto(objContacto);
                 agenda.addContacto(contacto);
-
             }
         });
+        document.querySelector("#btnAlfa").addEventListener("click",() => {
+            agenda.mostrarAlfa();
+        });
+        document.querySelector("#btnNum").addEventListener("click", () => {
+            agenda.mostrarNum();
+        })
     }
 }
-
 let m = new Main();
