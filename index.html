@@ -11,6 +11,8 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="agenda.css" />
   </head>
   <body>
@@ -18,13 +20,14 @@
       <h1>Agenda</h1>
       <p>Registro de contactos</p>
     </div>
-    <div class="container-fluid">
+    <div style="height: 75%;" class="container">
       <div class="row">
-        <!-- Formulario -->
-        <div class="col-md-4 mb-5">
-          <div class="row">
-            <form id="form" class="col-12 need-validation" novalidate>
+        <div class="col">
+          <div>
+            <form id="form" class="need-validation" novalidate>
+              <h2 id="sub">Registrar contacto</h2>
               <div class="form-group">
+                <i class="fas fa-user"></i>
                 <label for="nombre">Nombre</label>
                 <input
                   type="text"
@@ -41,6 +44,7 @@
                 </div>
               </div>
               <div class="form-group">
+                <i class="far fa-calendar-alt"></i>
                 <label for="fecha">Fecha</label>
                 <input
                   type="date"
@@ -56,6 +60,7 @@
                 </div>
               </div>
               <div class="form-group">
+                <i class="fas fa-envelope"></i>
                 <label for="correo">Correo</label>
                 <input
                   type="email"
@@ -71,39 +76,54 @@
                   Introduzca un correo válido.
                 </div>
               </div>
-              <button id="btn" type="button" class="btn btn-primary">
+              <div class="form-group">
+                  <i class="fas fa-mobile"></i>
+                  <label for="numero">Teléfono</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="numero"
+                    placeholder="Escriba su teléfono"
+                    required
+                  />
+                  <div class="valid-feedback">
+                    Correcto
+                  </div>
+                  <div class="invalid-feedback">
+                    Introduzca un número válido.
+                  </div>
+                </div>
+              <button id="btn" type="button" class="btn btn-danger btn-block">
                 Agregar
               </button>
-              <br>
-              <br>
-              <button id="btn-Alfa" type="button" class="btn btn-primary">
-                Ordenar alfabeticamente
+              <button id="btnAlfa" type="button" class="btn btn-success btn-block">
+                Ordenar alfabéticamente
+              </button>
+              <button id="btnNum" type="button" class="btn btn-warning btn-block">
+                Ordenar numéricamente
               </button>
             </form>
           </div>
         </div>
-        <!-- Tabla -->
-        <div class="col-md-8">
+        <div class="col-md-auto">
           <table id="agenda" class="table">
-            <thead>
+            <thead class="thead-dark"> 
               <tr>
                 <th>Nombre</th>
                 <th>Fecha de nacimiento</th>
                 <th>Correo</th>
                 <th>Edad</th>
+                <th>Número</th>
+                <th>Acción</th>
               </tr>
             </thead>
             <tbody></tbody>
           </table>
         </div>
       </div>
-      <!-- Row -->
     </div>
-    <!-- Container -->
-
+  </body>
     <script src="./main.js" type="module"></script>
-
-  
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -119,5 +139,5 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </html>
