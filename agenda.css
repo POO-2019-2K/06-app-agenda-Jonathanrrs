@@ -1,4 +1,52 @@
-.jumbotron {
-    background-color: rgb(221, 87, 87);
+.jumbotron,h1 {
+    font-family: 'Cormorant Unicase', serif;
+    font-size: 1.5cm;
+    color: black;
+    letter-spacing: 18px;
+    background-color: rgb(241, 237, 237);
+  }
+  p {
+    font-family: 'Cormorant Unicase', serif;
+    font-size: 1cm;
+  }
+  #form {
+    background-color: rgb(37, 31, 31);
+    color: white;
+    border-radius: 19px;
+    left: 4px;
+  }
+  #form input[type = "text"], #form input[type = "number"], #form input[type = "date"], #form input[type = "email"] {
+    border: 0;
+    background: none;
+    display: block;
+    border: 2px solid #3498db;
+    padding: 23px 10px;
+    outline: none;
+    border-radius: 17px;
+    transition: 0.25s;
     color: white;
   }
+  #form input[type = "text"]:focus, #form input[type = "number"]:focus, #form input[type = "date"]:focus, #form input[type = "email"]:focus {
+    border-color: #cc2e55; 
+  }
+  #sub {
+    text-align: center;
+  }
+  #btn {
+    border-radius: 15px;
+    margin: 4px auto;
+  }
+  #btnAlfa {
+    border-radius: 15px;
+    margin: 4px auto;
+  }
+  #btnNum {
+    border-radius: 15px;
+    margin: 4px auto;
+  }
+  .fas, .far {
+    margin-right: 5px;
+    font-size: 20px;
+  }
+  
+  
